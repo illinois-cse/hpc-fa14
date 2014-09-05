@@ -475,6 +475,7 @@ man command displays the manual page for a given command.
 ### Exercises
 
 -   Write a short explanatory comment for the following shell script:
+
 <code>
     $ find . -name '*.dat' -print | wc -l | sort -n
 </code>
@@ -489,9 +490,7 @@ man command displays the manual page for a given command.
     3. `$ grep -v temp $(find data/chem/pdb -name '*ose.pdb' -print)`
     4. None of the above.
 
-
-## Capstone Exercise
-
+![](./img/xkcd-cautionary.png)
 
 ### Advanced
 -   `at`, `atq`
