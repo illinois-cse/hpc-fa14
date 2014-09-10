@@ -170,6 +170,7 @@ navigation and command-line work:
     
     analyzed/  fructose.dat    raw/   sucrose.dat
 </code>
+    
     What command(s) could you run so that the commands below will produce the output shown?
 
 <code>
@@ -189,7 +190,9 @@ navigation and command-line work:
     
     $ cp thesis/citations.txt thesis/quotations.txt backup
 </code>
-    What does cp do when given three or more filenames, as in:
+    
+    What does `cp` do when given three or more filenames, as in:
+    
 <code>
     $ ls -F
     
@@ -197,6 +200,7 @@ navigation and command-line work:
     
     $ cp intro.txt methods.txt survey.txt
 </code>
+    
     Why do you think `cp`'s behavior is different from `mv`'s?
 
 -   The command `ls -R` lists the contents of directories recursively,
@@ -207,15 +211,15 @@ navigation and command-line work:
 
 
 ## Pipes & filters
-Redirect a command's output to a file.
-Process a file instead of keyboard input using redirection.
-Construct command pipelines with two or more stages.
-Explain what usually happens if a program or pipeline isn't given any input to process.
-Explain Unix's "small pieces, loosely joined" philosophy.
+-   Redirect a command's output to a file.
+-   Process a file instead of keyboard input using redirection.
+-   Construct command pipelines with two or more stages.
+-   Explain what usually happens if a program or pipeline isn't given any input to process.
+-   Explain Unix's "small pieces, loosely joined" philosophy.
 
-command > file redirects a command's output to a file.
-first | second is a pipeline: the output of the first command is used as the input to the second.
-The best way to use the shell is to use pipes to combine simple single-purpose programs (filters).
+-   `command > file` redirects a command's output to a file.
+-   `first | second` is a pipeline: the output of the first command is used as the input to the second.
+-   The best way to use the shell is to use pipes to combine simple single-purpose programs (filters).
 
 -   `|`, `>`, `<`, `&>`
 
@@ -279,6 +283,7 @@ The best way to use the shell is to use pipes to combine simple single-purpose p
     `$ cut -d , -f 2 animals.txt`
     
     produces the following output:
+    
 <code>
     deer
     
@@ -319,7 +324,7 @@ The best way to use the shell is to use pipes to combine simple single-purpose p
 
 -   `for`, `do`, `done`
 -   `if`, `then`, `fi` [ref](http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html)
-
+    
 <code>
     for i in {a..z}  # only way to do non-numeric lists
 
@@ -340,6 +345,7 @@ The best way to use the shell is to use pipes to combine simple single-purpose p
 
 ### Exercises
 -   Suppose that `ls` initially displays:
+    
 <code>
     fructose.dat    glucose.dat   sucrose.dat
 </code>
@@ -357,6 +363,7 @@ The best way to use the shell is to use pipes to combine simple single-purpose p
 </code>
 
 -   In the same directory, what is the effect of this loop?
+    
 <code>
     for sugar in *.dat
     
@@ -368,12 +375,14 @@ The best way to use the shell is to use pipes to combine simple single-purpose p
         
     done
 </code>
+    
     1. Prints fructose.dat, glucose.dat, and sucrose.dat, and copies sucrose.dat to create xylose.dat.
     2. Prints fructose.dat, glucose.dat, and sucrose.dat, and concatenates all three files to create xylose.dat.
     3. Prints fructose.dat, glucose.dat, sucrose.dat, and xylose.dat, and copies sucrose.dat to create xylose.dat.
     4. None of the above.
 
 -   `expr` does very simple arithmetic using command-line parameters:
+    
 <code>
     $ expr 3 + 5
     
@@ -406,6 +415,7 @@ The best way to use the shell is to use pipes to combine simple single-purpose p
     so that it works as expected?
 
 -   Describe in words what the following loop does.
+    
 <code>
     for how in frog11 prcb redig
     
