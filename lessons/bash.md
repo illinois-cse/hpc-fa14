@@ -14,12 +14,12 @@ graphical user interface for all of your needs.
 -   Who has used Linux before?
 
 ## Introduction
-Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs.
-Explain when and why command-line interfaces should be used instead of graphical interfaces.
+-   Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs.
+-   Explain when and why command-line interfaces should be used instead of graphical interfaces.
 
-A shell is a program whose primary purpose is to read commands and run other programs.
-The shell's main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and that it can be used to access networked machines.
-The shell's main disadvantages are its primarily textual nature and how cryptic its commands and operation can be.
+-   A shell is a program whose primary purpose is to read commands and run other programs.
+-   The shell's main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and that it can be used to access networked machines.
+-   The shell's main disadvantages are its primarily textual nature and how cryptic its commands and operation can be.
 
 -   `echo`
     -   `echo $SHELL`
@@ -29,23 +29,23 @@ The shell's main disadvantages are its primarily textual nature and how cryptic 
 
 
 ## Files & Directories
-Explain the similarities and differences between a file and a directory.
-Translate an absolute path into a relative path and vice versa.
-Construct absolute and relative paths that identify specific files and directories.
-Explain the steps in the shell's read-run-print cycle.
-Identify the actual command, flags, and filenames in a command-line call.
-Demonstrate the use of tab completion, and explain its advantages.
+-   Explain the similarities and differences between a file and a directory.
+-   Translate an absolute path into a relative path and vice versa.
+-   Construct absolute and relative paths that identify specific files and directories.
+-   Explain the steps in the shell's read-run-print cycle.
+-   Identify the actual command, flags, and filenames in a command-line call.
+-   Demonstrate the use of tab completion, and explain its advantages.
 
-The file system is responsible for managing information on the disk.
-Information is stored in files, which are stored in directories (folders).
-Directories can also store other directories, which forms a directory tree.
-`/` on its own is the root directory of the whole filesystem.
-A relative path specifies a location starting from the current location.
-An absolute path specifies a location from the root of the filesystem.
-Directory names in a path are separated with `/` on Unix, but `\` on Windows.
-`..` means "the directory above the current one"; `.` on its own means "the current directory".
-Most files' names are `something.extension`. The extension isn't required, and doesn't guarantee anything, but is normally used to indicate the type of data in the file.
-Most commands take options (flags) which begin with a `-`.
+-   The file system is responsible for managing information on the disk.
+-   Information is stored in files, which are stored in directories (folders).
+-   Directories can also store other directories, which forms a directory tree.
+-   `/` on its own is the root directory of the whole filesystem.
+-   A relative path specifies a location starting from the current location.
+-   An absolute path specifies a location from the root of the filesystem.
+-   Directory names in a path are separated with `/` on Unix, but `\` on Windows.
+-   `..` means "the directory above the current one"; `.` on its own means "the current directory".
+-   Most files' names are `something.extension`. The extension isn't required, and doesn't guarantee anything, but is normally used to indicate the type of data in the file.
+-   Most commands take options (flags) which begin with a `-`.
 
 Consider the file system below.  All of the directories are descended from the master
 root directory `/`.  Each of the top-level directories descend directly from `/`
@@ -100,14 +100,14 @@ navigation and command-line work:
 
 
 ## Create files and folders
-Create a directory hierarchy that matches a given diagram.
-Create files in that hierarchy using an editor or by copying and renaming existing files.
-Display the contents of a directory using the command line.
-Delete specified files and/or directories.
+-   Create a directory hierarchy that matches a given diagram.
+-   Create files in that hierarchy using an editor or by copying and renaming existing files.
+-   Display the contents of a directory using the command line.
+-   Delete specified files and/or directories.
 
-Unix documentation uses `^A` to mean "control-A".
-The shell does not have a trash bin: once something is deleted, it's really gone.
-Nano is a very simple text editor—please use something else for real work.
+-   Unix documentation uses `^A` to mean "control-A".
+-   The shell does not have a trash bin: once something is deleted, it's really gone.
+-   Nano is a very simple text editor—please use something else for real work.
 
 -   `cp`
 -   `nano`
@@ -146,30 +146,39 @@ Nano is a very simple text editor—please use something else for real work.
 
 <code>
     $ pwd
+    
     /home/thesis/data
+    
     $ touch proteins.dat
+    
     $ ls
+    
     proteins.dat
+    
     $ mkdir recombine
+    
     $ mv proteins.dat recombine
+    
     $ cp recombine/proteins.dat ../proteins-saved.dat
+    
     $ ls
 </code>
 
 -   Suppose that:
-
 <code>
     $ ls -F
+    
     analyzed/  fructose.dat    raw/   sucrose.dat
 </code>
-
-What command(s) could you run so that the commands below will produce the
-output shown?
+    What command(s) could you run so that the commands below will produce the output shown?
 
 <code>
     $ ls
+    
     analyzed   raw
+    
     $ ls analyzed
+    
     fructose.dat    sucrose.dat
 </code>
 
@@ -177,12 +186,15 @@ output shown?
 
 <code>
     $ mkdir backup
+    
     $ cp thesis/citations.txt thesis/quotations.txt backup
 </code>
     What does cp do when given three or more filenames, as in:
 <code>
     $ ls -F
+    
     intro.txt    methods.txt    survey.txt
+    
     $ cp intro.txt methods.txt survey.txt
 </code>
     Why do you think `cp`'s behavior is different from `mv`'s?
@@ -228,7 +240,9 @@ The best way to use the shell is to use pipes to combine simple single-purpose p
         Write a single line command to effect this entire process.
 <code>
     python grab-stations.py > stations.txt
+    
     python grab-forecast.py < stations.txt > forecast.txt
+    
     python plot-forecast.py < forecast.txt
 </code>
 
@@ -245,10 +259,13 @@ The best way to use the shell is to use pipes to combine simple single-purpose p
 
 -   The command `uniq` removes adjacent duplicated lines from its input.
     For example, run the following commands:
+    
 <code>
     $ cat salmon.txt
+    
     $ uniq salmon.txt
 </code>
+
     Why do you think `uniq` only removes adjacent duplicated lines? (Hint: think about very large data sets.) Which other command could you combine with it in a pipe to remove all duplicated lines?
 
 -   Examine the file called `animals.txt` using less.  What text passes through
@@ -258,45 +275,60 @@ The best way to use the shell is to use pipes to combine simple single-purpose p
 </code>
 
 -   The command:
+    
     `$ cut -d , -f 2 animals.txt`
+    
     produces the following output:
 <code>
     deer
+    
     rabbit
+    
     raccoon
+    
     rabbit
+    
     deer
+    
     fox
+    
     rabbit
+    
     bear
 </code>
+    
     What other command(s) could be added to this in a pipeline to find out what
     animals the file contains (without any duplicates in their names)?
 
 
 ## Loops
-Write a loop that applies one or more commands separately to each file in a set of files.
-Trace the values taken on by a loop variable during execution of the loop.
-Explain the difference between a variable's name and its value.
-Explain why spaces and some punctuation characters shouldn't be used in files' names.
-Demonstrate how to see what commands have recently been executed.
-Re-run recently executed commands without retyping them.
+-   Write a loop that applies one or more commands separately to each file in a set of files.
+-   Trace the values taken on by a loop variable during execution of the loop.
+-   Explain the difference between a variable's name and its value.
+-   Explain why spaces and some punctuation characters shouldn't be used in files' names.
+-   Demonstrate how to see what commands have recently been executed.
+-   Re-run recently executed commands without retyping them.
 
-A `for` loop repeats commands once for every thing in a list.
-Every `for` loop needs a variable to refer to the current "thing".
-Use `$name` to expand a variable (i.e., get its value).
-Do not use spaces, quotes, or wildcard characters such as `*` or `?` in filenames, as it complicates variable expansion.
-Give files consistent names that are easy to match with wildcard patterns to make it easy to select them for looping.
-Use the up-arrow key to scroll up through previous commands to edit and repeat them.
-Use `history` to display recent commands, and `!number` to repeat a command by number.
+-   A `for` loop repeats commands once for every thing in a list.
+-   Every `for` loop needs a variable to refer to the current "thing".
+-   Use `$name` to expand a variable (i.e., get its value).
+-   Do not use spaces, quotes, or wildcard characters such as `*` or `?` in filenames, as it complicates variable expansion.
+-   Give files consistent names that are easy to match with wildcard patterns to make it easy to select them for looping.
+-   Use the up-arrow key to scroll up through previous commands to edit and repeat them.
+-   Use `history` to display recent commands, and `!number` to repeat a command by number.
 
 -   `for`, `do`, `done`
 -   `if`, `then`, `fi` [ref](http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html)
 
+<code>
     for i in {a..z}  # only way to do non-numeric lists
+
     do               # try also with {A..z} to show trouble
+
         echo $i
+
     done
+</code>
 
 -   Ctrl + C
 
@@ -311,20 +343,29 @@ Use `history` to display recent commands, and `!number` to repeat a command by n
 <code>
     fructose.dat    glucose.dat   sucrose.dat
 </code>
+    
     What is the output of:
+    
 <code>
     for datafile in *.dat
+    
     do
+    
         ls *.dat
+    
     done
 </code>
 
 -   In the same directory, what is the effect of this loop?
 <code>
     for sugar in *.dat
+    
     do
+    
         echo $sugar
+        
         cat $sugar > xylose.dat
+        
     done
 </code>
     1. Prints fructose.dat, glucose.dat, and sucrose.dat, and copies sucrose.dat to create xylose.dat.
@@ -335,18 +376,29 @@ Use `history` to display recent commands, and `!number` to repeat a command by n
 -   `expr` does very simple arithmetic using command-line parameters:
 <code>
     $ expr 3 + 5
+    
     8
+    
     $ expr 30 / 5 - 2
+    
     4
 </code>
+    
     Given this, what is the output of:
+    
 <code>
     for left in 2 3
+    
     do
+    
         for right in $left
+        
         do
+        
             expr $left + $right
+            
         done
+        
     done
 </code>
 
@@ -356,23 +408,26 @@ Use `history` to display recent commands, and `!number` to repeat a command by n
 -   Describe in words what the following loop does.
 <code>
     for how in frog11 prcb redig
+    
     do
+    
         $how -limit 0.01 NENE01729B.txt
+        
     done
 </code>
 
 
 ## Shell Scripts
-Write a shell script that runs a command or series of commands for a fixed set of files.
-Run a shell script from the command line.
-Write a shell script that operates on a set of files defined by the user on the command line.
-Create pipelines that include user-written shell scripts.
+-   Write a shell script that runs a command or series of commands for a fixed set of files.
+-   Run a shell script from the command line.
+-   Write a shell script that operates on a set of files defined by the user on the command line.
+-   Create pipelines that include user-written shell scripts.
 
-Save commands in files (usually called shell scripts) for re-use.
-`bash filename` runs the commands saved in a file.
-`$*` refers to all of a shell script's command-line parameters.
-`$1`, `$2`, etc., refer to specified command-line parameters.
-Letting users decide what files to process is more flexible and more consistent with built-in Unix commands.
+-   Save commands in files (usually called shell scripts) for re-use.
+-   `bash filename` runs the commands saved in a file.
+-   `$*` refers to all of a shell script's command-line parameters.
+-   `$1`, `$2`, etc., refer to specified command-line parameters.
+-   Letting users decide what files to process is more flexible and more consistent with built-in Unix commands.
 
 -   `#`
 -   `export`
@@ -387,15 +442,22 @@ Letting users decide what files to process is more flexible and more consistent 
 
 -   Now let's turn that into an arbitrary slicer:
     
+<code>
     head $2 $1 | tail $3
     
     # Select lines from the middle of a file.
+    
     # Usage: middle.sh filename -end_line -num_lines
+    
     head $2 $1 | tail $3
     
+    
     # Select lines from the middle of a file.
+    
     # Usage: middle.sh filename -first_line -last_line
+    
     head -$3 $1 | tail -$(expr $3 - $2 + 1)
+</code>
 
 ### Advanced
 -   `.bash_profile`
@@ -452,14 +514,14 @@ Letting users decide what files to process is more flexible and more consistent 
     awk '{print $1}' ~/.bash_history | sort | uniq -c | sort -n | tail -10 | sort -n -r
 
 ## Finding Things
-Use grep to select lines from text files that match simple patterns.
-Use find to find files whose names match simple patterns.
-Use the output of one command as the command-line parameters to another command.
-Explain what is meant by "text" and "binary" files, and why many common tools don't handle the latter well.
+-   Use grep to select lines from text files that match simple patterns.
+-   Use find to find files whose names match simple patterns.
+-   Use the output of one command as the command-line parameters to another command.
+-   Explain what is meant by "text" and "binary" files, and why many common tools don't handle the latter well.
 
-Use find to find files and directories, and grep to find text patterns in files.
-$(command) inserts a command's output in place.
-man command displays the manual page for a given command.
+-   Use find to find files and directories, and grep to find text patterns in files.
+-   `$(command)` inserts a command's output in place.
+-   man command displays the manual page for a given command.
 
 -   `wc`, `wc -l`, `wc -w`, `wc -c`
     -   wc -l *.pdb > len
