@@ -414,18 +414,6 @@ navigation and command-line work:
 -   What is the problem with multiplication with `expr`?  Can you _escape_ the `*`
     so that it works as expected?
 
--   Describe in words what the following loop does.
-    
-<code>
-    for how in frog11 prcb redig
-    
-    do
-    
-        $how -limit 0.01 NENE01729B.txt
-        
-    done
-</code>
-
 
 ## Shell Scripts
 -   Write a shell script that runs a command or series of commands for a fixed set of files.
@@ -478,16 +466,25 @@ navigation and command-line work:
 
 ### Exercises
 -   Leah has several hundred data files, each of which is formatted like this:
+    
 <code>
     2013-11-05,deer,5
+    
     2013-11-05,rabbit,22
+    
     2013-11-05,raccoon,7
+    
     2013-11-06,rabbit,19
+    
     2013-11-06,deer,2
+    
     2013-11-06,fox,1
+    
     2013-11-07,rabbit,18
+    
     2013-11-07,bear,1
 </code>
+    
     Write a shell script called `species.sh` that takes any number of
     filenames as command-line parameters, and uses `cut`, `sort`, and `uniq`
     to print a list of the unique species appearing in each of those files
@@ -510,18 +507,25 @@ navigation and command-line work:
 -   Joel's data directory contains three files: `fructose.dat`, `glucose.dat`,
     and `sucrose.dat`. Explain what the following script, `example.sh`, would
     do when run as `bash example.sh *.dat`:
+    
 <code>
 	echo *.*
+	
 	for filename in $1 $2 $3
+	
 	do
+	
 	    cat $filename
+	    
 	done
+	
 	echo $*.dat
 </code>
 
 -   The `history` shows the last thousand or so commands that you've used.  What does this
     code do?  (Test `awk '{print $1}' data/pdb/methane.pdb` to see what this `awk` does.)
-    awk '{print $1}' ~/.bash_history | sort | uniq -c | sort -n | tail -10 | sort -n -r
+    
+    `awk '{print $1}' ~/.bash_history | sort | uniq -c | sort -n | tail -10 | sort -n -r`
 
 ## Finding Things
 -   Use grep to select lines from text files that match simple patterns.
