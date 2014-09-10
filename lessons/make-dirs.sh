@@ -1,0 +1,21 @@
+mkdir bin
+mkdir data
+mkdir usr
+mkdir home
+cd home/
+mkdir sonic
+mkdir mario
+mkdir snake
+cd sonic/
+mkdir school
+mkdir thesis
+mkdir papers
+mkdir music
+touch school/cs450.txt
+touch school/ie340.txt
+touch mend.cfg
+touch cse.txt
+touch music/theme.mp3
+touch music/boss.mp3
+cd ../..
+tree
