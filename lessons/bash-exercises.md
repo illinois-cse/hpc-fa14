@@ -76,61 +76,64 @@ the `My Documents` folder on Windows.
 
 -   What is the output of the closing `ls` command in the sequence shown below?
 
-
 <code>
     $ pwd
-
+    
     /home/thesis/data
-
+    
     $ touch proteins.dat
-
+    
     $ ls
-
+    
     proteins.dat
-
+    
     $ mkdir recombine
-
+    
     $ mv proteins.dat recombine
-
+    
     $ cp recombine/proteins.dat ../proteins-saved.dat
-
+    
     $ ls
 </code>
-
 
 -   Suppose that:
-
-
 <code>
     $ ls -F
-
+    
     analyzed/  fructose.dat    raw/   sucrose.dat
 </code>
+    
+    What command(s) could you run so that the commands below will produce the output shown?
 
-What command(s) could you run so that the commands below will produce the output shown?
-
-
+<code>
     $ ls
+    
     analyzed   raw
+    
     $ ls analyzed
+    
     fructose.dat    sucrose.dat
+</code>
 
 -   What does `cp` do when given several filenames and a directory name, as in:
-
 
 <code>
     $ mkdir backup
     
     $ cp thesis/citations.txt thesis/quotations.txt backup
 </code>
-
-What does `cp` do when given three or more filenames, as in:
     
+    What does `cp` do when given three or more filenames, as in:
+    
+<code>
     $ ls -F
-    intro.txt    methods.txt    survey.txt
-    $ cp intro.txt methods.txt survey.txt
     
-Why do you think `cp`'s behavior is different from `mv`'s?
+    intro.txt    methods.txt    survey.txt
+    
+    $ cp intro.txt methods.txt survey.txt
+</code>
+    
+    Why do you think `cp`'s behavior is different from `mv`'s?
 
 -   The command `ls -R` lists the contents of directories recursively,
     _i.e._, lists their sub-directories, sub-sub-directories, and so on
@@ -158,15 +161,15 @@ Why do you think `cp`'s behavior is different from `mv`'s?
     These scripts are designed to input and output their data through streams.
     For instance, execute `python grab-stations.py` and observe the output.
     -   How can we capture this output as a file?
-    -   The programs are designed to work in series: `grab-stations.py` feeds data to `grab-forecast.py` which feeds into `plot-forecast.py`.
-    -   Write a single line command to effect this entire process.
-
-
+    -   The programs are designed to work in series:
+        `grab-stations.py` feeds data to `grab-forecast.py` which feeds into `plot-forecast.py`.
+        Write a single line command to effect this entire process.
+        
 <code>
         python grab-stations.py > stations.txt
-
+        
         python grab-forecast.py < stations.txt > forecast.txt
-
+        
         python plot-forecast.py < forecast.txt
 </code>
 
@@ -183,42 +186,48 @@ Why do you think `cp`'s behavior is different from `mv`'s?
 
 -   The command `uniq` removes adjacent duplicated lines from its input.
     For example, run the following commands:
-
- 
-
+    
+<code>
     $ cat salmon.txt
+    
     $ uniq salmon.txt
+</code>
 
-
-Why do you think `uniq` only removes adjacent duplicated lines? (Hint: think about very large data sets.) Which other command could you combine with it in a pipe to remove all duplicated lines?
+    Why do you think `uniq` only removes adjacent duplicated lines? (Hint: think about very large data sets.) Which other command could you combine with it in a pipe to remove all duplicated lines?
 
 -   Examine the file called `animals.txt` using less.  What text passes through
     each of the pipes and the final redirect in the pipeline below?
     
-
+<code>
     cat animals.txt | head -5 | tail -3 | sort -r > final.txt
-
+</code>
 
 -   The command:
-
-
+    
     `$ cut -d , -f 2 animals.txt`
     
-produces the following output:
+    produces the following output:
     
-
+<code>
     deer
+    
     rabbit
+    
     raccoon
-    rabbit
-    deer
-    fox
-    rabbit
-    bear
     
-
-What other command(s) could be added to this in a pipeline to find out what
-animals the file contains (without any duplicates in their names)?
+    rabbit
+    
+    deer
+    
+    fox
+    
+    rabbit
+    
+    bear
+</code>
+    
+    What other command(s) could be added to this in a pipeline to find out what
+    animals the file contains (without any duplicates in their names)?
 
 
 ## Loops
@@ -240,55 +249,70 @@ animals the file contains (without any duplicates in their names)?
 ### Exercises
 -   Suppose that `ls` initially displays:
     
-
+<code>
     fructose.dat    glucose.dat   sucrose.dat
-
+</code>
     
-What is the output of:
+    What is the output of:
     
-
+<code>
     for datafile in *.dat
+    
     do
+    
         ls *.dat
+    
     done
-
-
+</code>
 
 -   In the same directory, what is the effect of this loop?
-
-
-
+    
+<code>
     for sugar in *.dat
+    
     do
+    
         echo $sugar
+        
         cat $sugar > xylose.dat
+        
     done
-
-
-
+</code>
+    
     1. Prints fructose.dat, glucose.dat, and sucrose.dat, and copies sucrose.dat to create xylose.dat.
     2. Prints fructose.dat, glucose.dat, and sucrose.dat, and concatenates all three files to create xylose.dat.
     3. Prints fructose.dat, glucose.dat, sucrose.dat, and xylose.dat, and copies sucrose.dat to create xylose.dat.
     4. None of the above.
 
 -   `expr` does very simple arithmetic using command-line parameters:
-
-
+    
+<code>
     $ expr 3 + 5
+    
     8
+    
     $ expr 30 / 5 - 2
+    
     4
-
-Given this, what is the output of:
-
-
+</code>
+    
+    Given this, what is the output of:
+    
+<code>
     for left in 2 3
+    
     do
+    
         for right in $left
+        
         do
+        
             expr $left + $right
+            
         done
+        
     done
+</code>
 
 -   What is the problem with multiplication with `expr`?  Can you _escape_ the `*`
     so that it works as expected?
@@ -308,22 +332,29 @@ Given this, what is the output of:
 
 ### Exercises
 -   Leah has several hundred data files, each of which is formatted like this:
-
-
-    2013-11-05,deer,5
-    2013-11-05,rabbit,22
-    2013-11-05,raccoon,7
-    2013-11-06,rabbit,19
-    2013-11-06,deer,2
-    2013-11-06,fox,1
-    2013-11-07,rabbit,18
-    2013-11-07,bear,1
-
     
-Write a shell script called `species.sh` that takes any number of
-filenames as command-line parameters, and uses `cut`, `sort`, and `uniq`
-to print a list of the unique species appearing in each of those files
-separately.  (Test this on the files in `data/pipes/animals`)
+<code>
+    2013-11-05,deer,5
+    
+    2013-11-05,rabbit,22
+    
+    2013-11-05,raccoon,7
+    
+    2013-11-06,rabbit,19
+    
+    2013-11-06,deer,2
+    
+    2013-11-06,fox,1
+    
+    2013-11-07,rabbit,18
+    
+    2013-11-07,bear,1
+</code>
+    
+    Write a shell script called `species.sh` that takes any number of
+    filenames as command-line parameters, and uses `cut`, `sort`, and `uniq`
+    to print a list of the unique species appearing in each of those files
+    separately.  (Test this on the files in `data/pipes/animals`)
 
 -   Write a shell script called `longest.sh` that takes the name of a directory
     and a filename extension as its parameters, and prints out the name of the
@@ -342,22 +373,25 @@ separately.  (Test this on the files in `data/pipes/animals`)
 -   Joel's data directory contains three files: `fructose.dat`, `glucose.dat`,
     and `sucrose.dat`. Explain what the following script, `example.sh`, would
     do when run as `bash example.sh *.dat`:
-
-
+    
+<code>
 	echo *.*
+	
 	for filename in $1 $2 $3
+	
 	do
+	
 	    cat $filename
+	    
 	done
+	
 	echo $*.dat
-
+</code>
 
 -   The `history` shows the last thousand or so commands that you've used.  What does this
     code do?  (Test `awk '{print $1}' data/pdb/methane.pdb` to see what this `awk` does.)
-
-
-    awk '{print $1}' ~/.bash_history | sort | uniq -c | sort -n | tail -10 | sort -n -r
-
+    
+    `awk '{print $1}' ~/.bash_history | sort | uniq -c | sort -n | tail -10 | sort -n -r`
 
 ## Finding Things
 -   Use `grep` to select lines from text files that match simple patterns.
@@ -374,9 +408,9 @@ separately.  (Test this on the files in `data/pipes/animals`)
 
 -   Write a short explanatory comment for the following shell script:
 
-
+<code>
     $ find . -name '*.dat' -print | wc -l | sort -n
-
+</code>
 
 -   The `-v` flag to grep inverts pattern matching, so that only lines which
     _do not_ match the pattern are printed.  Given that, which of the following
@@ -387,6 +421,5 @@ separately.  (Test this on the files in `data/pipes/animals`)
     2. `$ find data/chem/pdb -name ose.pdb -print | grep -v temp`
     3. `$ grep -v temp $(find data/chem/pdb -name '*ose.pdb' -print)`
     4. None of the above.
-
 
 ![](./img/xkcd-cautionary.png)
