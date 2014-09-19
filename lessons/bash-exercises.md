@@ -77,6 +77,7 @@ the `My Documents` folder on Windows.
 -   What is the output of the closing `ls` command in the sequence shown below?
 
 
+
     $ pwd
     /home/thesis/data
     $ touch proteins.dat
@@ -86,6 +87,7 @@ the `My Documents` folder on Windows.
     $ mv proteins.dat recombine
     $ cp recombine/proteins.dat ../proteins-saved.dat
     $ ls
+
 
 
 -   Suppose that:
