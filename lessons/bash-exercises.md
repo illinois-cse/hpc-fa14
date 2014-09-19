@@ -101,8 +101,11 @@ the `My Documents` folder on Windows.
 -   Suppose that:
 
 
+<code>
     $ ls -F
+
     analyzed/  fructose.dat    raw/   sucrose.dat
+</code>
 
 What command(s) could you run so that the commands below will produce the output shown?
 
@@ -115,9 +118,12 @@ What command(s) could you run so that the commands below will produce the output
 -   What does `cp` do when given several filenames and a directory name, as in:
 
 
+<code>
     $ mkdir backup
-    $ cp thesis/citations.txt thesis/quotations.txt backup
     
+    $ cp thesis/citations.txt thesis/quotations.txt backup
+</code>
+
 What does `cp` do when given three or more filenames, as in:
     
     $ ls -F
@@ -156,11 +162,13 @@ Why do you think `cp`'s behavior is different from `mv`'s?
     -   Write a single line command to effect this entire process.
 
 
-
+<code>
         python grab-stations.py > stations.txt
-        python grab-forecast.py < stations.txt > forecast.txt
-        python plot-forecast.py < forecast.txt
 
+        python grab-forecast.py < stations.txt > forecast.txt
+
+        python plot-forecast.py < forecast.txt
+</code>
 
 (Navigate to the data/pipes/ directory for the following examples.)
 
@@ -175,7 +183,8 @@ Why do you think `cp`'s behavior is different from `mv`'s?
 
 -   The command `uniq` removes adjacent duplicated lines from its input.
     For example, run the following commands:
-    
+
+ 
 
     $ cat salmon.txt
     $ uniq salmon.txt
