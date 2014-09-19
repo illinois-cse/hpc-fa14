@@ -77,17 +77,25 @@ the `My Documents` folder on Windows.
 -   What is the output of the closing `ls` command in the sequence shown below?
 
 
-
+<code>
     $ pwd
+
     /home/thesis/data
+
     $ touch proteins.dat
-    $ ls
-    proteins.dat
-    $ mkdir recombine
-    $ mv proteins.dat recombine
-    $ cp recombine/proteins.dat ../proteins-saved.dat
+
     $ ls
 
+    proteins.dat
+
+    $ mkdir recombine
+
+    $ mv proteins.dat recombine
+
+    $ cp recombine/proteins.dat ../proteins-saved.dat
+
+    $ ls
+</code>
 
 
 -   Suppose that:
