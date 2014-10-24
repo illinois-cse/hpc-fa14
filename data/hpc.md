@@ -14,7 +14,7 @@ https://slid.es/uiuc-cse/hpc-fa14/
         -   Accessing Campus Cluster (`ssh`; PuTTY for Windows)
             -   `ssh`
             -   `scp` to/from `$USER@taub:~/hpc-sp14/data/aeotab_9.xlsx`
-            -   `wget http://www.eia.gov/forecasts/aeo/er/excel/aeotab_10.xlsx`
+            -   `wget https://github.com/uiuc-cse/hpc-fa14/raw/gh-pages/data/hpc-src.tar.gz`
         -   `who`/`whoami`
         -   `nano`/`vi`/`emacs`
         -   `module` (`ldd bin/nwchem ; module load intel mvapich2 ; ldd bin/nwchem`)
@@ -86,7 +86,6 @@ https://slid.es/uiuc-cse/hpc-fa14/
         -   Examples:  cache misses, 
             -   `module load valgrind`
             -   `valgrind --tool=memcheck --leak-check=yes --show-reachable=yes -v ./cache_test 10000`
-    -   Numerical error worksheet (`hpc/lessons/numerical-error.ipynb`)
 
 -   Setting up Campus Cluster to be friendlier
     -   `.bash_profile` (`ls color`), `alias` (but not to `cc`), `ssh-keygen`
